@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Para Heloise - Nossas Memórias</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Pacifico', cursive;
+      background-color: #800020;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 10px;
+    }
+
+    #message-container {
+      font-size: 3em;
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      margin-bottom: 30px;
+    }
+
+    #typed-text {
+      border-right: 3px solid #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block;
+      animation: typing 3.5s steps(40, end), blink-caret 0.7s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: white }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 15px;
+      padding: 30px;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      max-width: 100%;
+      width: 800px;
+      animation: fadeInContainer 1s forwards;
+    }
+
+    .text-container {
+      animation-delay: 5.5s;
+    }
+
+    @keyframes fadeInContainer {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .container h2 {
+      font-family: 'Roboto', sans-serif;
+      color: #800020;
+      font-size: 2em;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .container p, .container ul {
+      font-family: 'Roboto', sans-serif;
+      color: #333;
+      font-size: 1.1em;
+    }
+
+    .container ul {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+    }
+
+    .container li {
+      background-color: rgba(128, 0, 32, 0.1);
+      margin-bottom: 12px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      border-left: 5px solid #800020;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .image-item {
+      position: relative;
+      cursor: pointer;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .image-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .image-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+      border-radius: 10px;
+    }
+
+    .image-description {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.75);
+      color: #fff;
+      font-family: 'Roboto', sans-serif;
+      font-size: 0.9em;
+      padding: 10px;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+      pointer-events: none;
+    }
+
+    .image-item.active .image-description {
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    @media (max-width: 600px) {
+      #message-container {
+        font-size: 2em;
+      }
+
+      .container {
+        padding: 20px;
+      }
+
+      .image-item img {
+        height: 220px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="message-container">
+    <span id="typed-text"></span>
+  </div>
+
+  <div class="container image-container">
+    <h2>Nossas Melhores Memórias</h2>
+    <div class="image-grid">
+      <div class="image-item">
+        <img src="imgs/safados.jpg" alt="safados">
+        <div class="image-description">Os dois super gostosos, mas essa mulher é a mais especial do mundo! Perfeita da cabeça aos pés!</div>
+      </div>
+      <div class="image-item">
+        <img src="imgs/brecho.jpg" alt="Compra brechó">
+        <div class="image-description">Nossa primeira compra juntos como casal, ver você tão feliz sendo a gente(pobres) foi muito especial pra mim.</div>
+      </div>
+      <div class="image-item">
+        <img src="imgs/flores.jpg" alt="Flores">
+        <div class="image-description">Não foi uma foto com alianças juntos, mas foram rosas que simbolizaram nossa aliança e amor um por outro.</div>
+      </div>
+      <div class="image-item">
+        <img src="imgs/bobinhos.jpg" alt="Você e eu com minha familia">
+        <div class="image-description">Esse dia marca você como parte da minha familia, eu amei essa foto, os dois ficaram bons e bobinhos.</div>
+      </div>
+      <div class="image-item">
+        <img src="imgs/dia.jpg" alt="Melhor sensação da minha vida">
+        <div class="image-description">Mais uma foto do dia mais feliz da minha vida, aí eu me sentia uma criança de novo, me sentia feliz. Eu amo só deitar com você e ficar só assim.</div>
+      </div>
+      <div class="image-item">
+        <img src="imgs/eu dormindo.jpg" alt="18/07/25">
+        <div class="image-description">Um dia antes de completarmos nosso primeiro mês, eu vacilei com você, chorei muito, mas essa sensação do seu colo me faz eu viver mais, eu ficaria o dia todo assim.</div>
+      </div>
+      <div class="image-item">
+        <img src="imgs/lindos.jpg" alt="Lindecos">
+        <div class="image-description">Essa foto achei muito boa, você ficou uma gata com esse look, eu amo tanto você! MUITO MUITO MUITO!</div>
+      </div>
+      <div class="image-item">
+        <img src="imgs/olhos dela.jpg" alt="Olhos da Heloise">
+        <div class="image-description">Eu nunca vou parar de admirar seus olhos, eles são tão lindos, grandes. Castanhos, eles são você, o olhar penetrante, lindo. Eu quero ficar olhando o resto da minha vida pra eles.</div>
+      </div>
+      <div class="image-item">
+        <img src="imgs/mulher.jpg" alt="Mulher linda, gostosa, abençoada">
+        <div class="image-description">Olha pra você amor, me deu essa foto incrivel, tu é tão linda, mesmo que eu não curta sensualizar, você é gostosa. Essa foto tem toda sua beleza, minha princesa.</div>
+      </div>  
+    </div>
+  </div>
+
+  <div class="container text-container">
+    <h2>Motivos que eu te amo</h2>
+    <ul>
+      <li>Eu amo seu sorriso.</li>
+      <li>Eu amo seus olhos.</li>
+      <li>Eu amo sua paixão pelas coisas que você faz.</li>
+      <li>Eu amo a forma como você cuida de mim.</li>
+      <li>Eu amo cada risada que compartilhamos.</li>
+      <li>Eu amo o seu abraço, me faz sentir seguro.</li>
+      <li>Eu amo o seu cabelo.</li>
+      <li>Eu amo quando você fala que me ama.</li>
+      <li>Eu amo seu beijo.</li>
+      <li>Eu amo quando você me segura.</li>
+      <li>Eu amo sua comida.</li>
+    </ul>
+  </div>
+
+  <div class="container text-container">
+    <h2>Heloise, eu te amo</h2>
+    <p>
+      Você é a mulher que eu preciso, eu necessito de você, eu te amo. Eu peço perdão pelos meus erros, às vezes eu só estou estressado amor, eu não consigo me expressar.  
+      Eu tenho medo do futuro, se eu te perder, eu não sei o que eu faço. Eu não consigo imaginar minha vida sem você.  
+      Você é a mulher que eu quero casar, ter filhos, envelhecer junto, viajar, viver aventuras e momentos bons e ruins.  
+      Eu quero que você saiba que eu te amo, e que eu vou fazer de tudo pra te fazer feliz.  
+      Se você quer carinho eu te dou, se você quer safadeza eu te satisfaço, se você quer um abraço eu te abraço, se você quer consolo eu te consolo.  
+      Eu te amo Heloise de Souza Keuneck, amor, minha vida, meu bem, minha princesa.  
+      Te amo ❤️
+    </p>
+  </div>
+
+  <script>
+    const text = "Eu te amo, Heloise! ❤️";
+    let i = 0;
+    const typedTextSpan = document.getElementById("typed-text");
+    const speed = 100;
+
+    function typeWriter() {
+      if (i < text.length) {
+        typedTextSpan.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      } else {
+        typedTextSpan.style.borderRight = "none";
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      setTimeout(typeWriter, 1000);
+
+      // Faz as descrições das imagens aparecerem ao clicar
+      const imageItems = document.querySelectorAll('.image-item');
+      imageItems.forEach(item => {
+        item.addEventListener('click', () => {
+          item.classList.toggle('active');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
